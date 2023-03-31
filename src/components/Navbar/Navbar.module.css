@@ -1,0 +1,19 @@
+.container {
+    background-color: rgb(33, 83, 248);
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.navbarText {
+    color: rgb(255, 255, 255);
+    padding: 10px;
+    margin: 20px;
+    font-size: 30px;
+    font-weight: 700;
+}

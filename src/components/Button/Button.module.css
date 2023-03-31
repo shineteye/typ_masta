@@ -1,0 +1,19 @@
+.container {
+    margin: 30px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.btnText {
+    color: rgb(255, 255, 255);
+    background-color: rgb(11, 28, 102);
+    margin: 10px;
+    font-size: 30px;
+    font-weight: 700;
+    width: 150px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+}

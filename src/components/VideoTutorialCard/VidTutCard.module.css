@@ -1,0 +1,20 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px;
+    color: blue;
+    background-color: white;
+    width: 60%;
+}
+
+.infoContainer {
+    margin-right: 50px;
+    padding-right: 50px;
+
+}
+
+.vidContainer {
+    justify-content: center;
+    align-items: center;
+}

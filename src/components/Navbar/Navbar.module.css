@@ -4,9 +4,11 @@
     height: 70px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     display: flex;
     flex-direction: row;
+    margin: 10;
+
 
 }
 

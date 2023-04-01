@@ -1,16 +1,32 @@
 .container {
-    background-color: rgb(20, 72, 102);
+    background-color: rgb(26, 101, 167);
     margin: 30px;
     color: white;
-    height: 200px;
+    height: 400px;
     width: 60%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.image {
+    width: 200px;
+    height: 200px;
 }
 
 .cardText {
     font-size: 30px;
     font-weight: bold;
     text-align: center;
+}
+
+.btn {
+    background-color: rgb(33, 128, 179);
+    color: white;
+    font-size: 20px;
+    margin: 10px;
+    width: 150px;
+    height: 40px;
+    border: none;
 }

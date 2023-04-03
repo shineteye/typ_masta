@@ -5,14 +5,17 @@ import styles from './Navbar.module.css'
 function Navbar() {
     return (
         <div className={styles.container}>
-            <Link to="/">
-                <p className={styles.navbarText}>Navbar</p>
-            </Link>
-            <Link to="/home">
+            <Link to="/" style={{ textDecoration: 'none' }}>
                 <p className={styles.navbarText}>Home</p>
             </Link>
-            <Link to="/menu">
+            <Link to="/menu" style={{ textDecoration: 'none' }}>
                 <p className={styles.navbarText}>Menu</p>
+            </Link>
+            <Link to="/practice" style={{ textDecoration: 'none' }}>
+                <p className={styles.navbarText}>Practice</p>
+            </Link>
+            <Link to="/progress" style={{ textDecoration: 'none' }}>
+                <p className={styles.navbarText}>Progress</p>
             </Link>
 
             <Outlet />

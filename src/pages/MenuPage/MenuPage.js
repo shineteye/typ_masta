@@ -12,7 +12,7 @@ function MenuPage() {
     return (
         <>
             <Navbar />
-            <Header />
+            <Header header="Select your level" />
             <div className={styles.container}>
                 <Card
                     text="First is a card"
@@ -33,8 +33,8 @@ function MenuPage() {
                     imgSrc={beginnerImg}
                     linkTo='/videotutorials'
                 />
-                <Link to='/home'>
-                    <button>Home</button>
+                <Link to='/'>
+                    <button className={styles.btn}>Home</button>
                 </Link>
             </div>
         </>

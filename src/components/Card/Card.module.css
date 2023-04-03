@@ -1,6 +1,6 @@
 .container {
-    background-color: rgb(26, 101, 167);
-    margin: 30px;
+    background-color: rgb(56, 153, 250);
+    margin: 20px;
     color: white;
     height: 400px;
     width: 60%;
@@ -22,11 +22,12 @@
 }
 
 .btn {
-    background-color: rgb(33, 128, 179);
+    background-color: rgb(26, 103, 219);
     color: white;
-    font-size: 20px;
-    margin: 10px;
-    width: 150px;
-    height: 40px;
+    font-size: 30px;
+    margin-top: 30px;
+    width: 200px;
+    height: 50px;
     border: none;
+    cursor: pointer;
 }

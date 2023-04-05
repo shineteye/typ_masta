@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import beginnerImg from '../../assets/img/photo.jpg'
+import beginnerImg from '../../assets/img/beginner.jpg'
+import advancedImg from '../../assets/img/inter.jpg'
+import ProImg from '../../assets/img/pro.jpg'
 import Card from '../../components/Card/Card'
 import Header from '../../components/Header/Header'
 import Navbar from '../../components/Navbar/Navbar'
@@ -23,14 +25,14 @@ function MenuPage() {
                 <Card
                     text="Second card"
                     lvlText="Advanced"
-                    imgSrc={beginnerImg}
+                    imgSrc={advancedImg}
                     linkTo='/videotutorials'
                 />
 
                 <Card
                     text="Third card"
                     lvlText="Professional"
-                    imgSrc={beginnerImg}
+                    imgSrc={ProImg}
                     linkTo='/videotutorials'
                 />
                 <Link to='/'>

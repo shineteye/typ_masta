@@ -77,17 +77,17 @@ const PracticePage = () => {
         <div className={styles.container}>
             <Navbar />
             <div className={styles.practiceInfo}>
-                <p>Practice text: {"300 Words"}</p>
+                <p>Total Words: {"300 Words"}</p>
                 <p>Elapsed Time: {elapsedTime}s </p>
-                <p>Correct Keystrokes: {correctKeystrokes} </p>
-                <p>Typing Speed: {typingSpeed} </p>
+                <p>Mistakes: {correctKeystrokes} </p>
+                <p>WPM: {typingSpeed} </p>
             </div>
             <div className={styles.sampleText}>
                 <p>
                     {currentText}
                 </p>
             </div>
-            <textarea style={{ width: 500, height: 400 }} value={userInput} onInput={handleInputChange} />
+            <input style={{ padding: 10, margin: 10, width: '40%', border: 'none', backgroundColor: "#cde", outline: 'none', fontSize: 20 }} value={userInput} onChange={handleInputChange} />
             <button onClick={handleStart} disabled={isRunning}>
                 Start
             </button>

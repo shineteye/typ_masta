@@ -10,27 +10,27 @@ const LaunchPage = () => {
     return (
         <div className={styles.container}>
             <Navbar />
-            <div style={{ marginTop: 200 }}>
+            <div style={{ marginTop: 200, height: '80vh' }}>
                 <Header header="Welcome to TYPMASTA" />
-            </div>
-            <Link to='/menu'>
-                <button style={{
-                    width: 250,
-                    height: 50,
-                    margin: 10,
-                    padding: 10,
-                    backgroundColor: "rgb(47, 130, 254)",
-                    color: 'white',
-                    fontWeight: 'bold',
-                    fontSize: 20,
-                    borderRadius: 5,
-                    border: "none",
-                    cursor: 'pointer'
-                }}
-                >Get Started</button>
-            </Link>
+                <Link to='/menu'>
+                    <button style={{
+                        width: 250,
+                        height: 50,
+                        margin: 10,
+                        padding: 10,
+                        backgroundColor: "rgb(47, 130, 254)",
+                        color: 'white',
+                        fontWeight: 'bold',
+                        fontSize: 20,
+                        borderRadius: 5,
+                        border: "none",
+                        cursor: 'pointer'
+                    }}
+                    >Get Started</button>
+                </Link>
+                <Outlet />
+            </div >
 
-            <Outlet />
         </div>
     )
 }

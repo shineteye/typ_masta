@@ -1,0 +1,56 @@
+.container {
+    background-color: rgb(255, 255, 255);
+    width: 80vmin;
+    padding: 50px;
+    margin: 30px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    border-radius: 10px;
+}
+
+.practiceInfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: rgb(127, 182, 233);
+    width: 100%;
+    font-size: 20px;
+    padding: 10px;
+    font-weight: 600;
+}
+
+.paragraph {
+    text-align: justify;
+    margin: 50px 0 30px 0;
+    font-weight: 600;
+}
+
+textarea {
+    resize: none;
+    width: 100%;
+    border-radius: 5px;
+    padding: 10px 5px;
+    font-size: 16px;
+    margin-top: 40px;
+}
+
+button {
+    margin: 5px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.startBtn {
+    background-color: green;
+    color: white;
+}
+
+.stopBtn {
+    background-color: red;
+    color: white;
+}

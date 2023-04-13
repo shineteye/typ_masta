@@ -11,7 +11,7 @@ function Navbar() {
             <Link to="/menu" style={{ textDecoration: 'none' }}>
                 <p className={styles.navbarText}>Menu</p>
             </Link>
-            <Link to="/practice" style={{ textDecoration: 'none' }}>
+            <Link to="/practiceR" style={{ textDecoration: 'none' }}>
                 <p className={styles.navbarText}>Practice</p>
             </Link>
             <Link to="/progress" style={{ textDecoration: 'none' }}>

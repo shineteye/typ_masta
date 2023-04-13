@@ -54,3 +54,11 @@ button {
     background-color: red;
     color: white;
 }
+
+.typingTextRef div span.correct {
+    color: green
+}
+
+.typingTextRef div span.incorrect {
+    color: red
+}

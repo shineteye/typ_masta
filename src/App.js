@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import HomePage from './pages/HomePage/Home';
 import LaunchPage from './pages/LaunchPage/LaunchPage';
@@ -12,17 +12,15 @@ import TutorialPage from './pages/TutorialPage/TutorialPage';
 function App() {
   return (
     <div className='App'>
-      <BrowserRouter>
-        <Routes>
-          <Route exact path='/' element={< LaunchPage />} />
-          <Route exact path='home' element={<HomePage />} />
-          <Route exact path='menu' element={<MenuPage />} />
-          <Route exact path='videotutorials' element={<TutorialPage />} />
-          <Route exact path='progress' element={<ProgressPage />} />
-          <Route exact path='practice' element={<PracticePage />} />
-          <Route exact path='practiceR' element={<PracticePageR />} />
-        </Routes>
-      </BrowserRouter>
+      <Routes>
+        <Route exact path='/' element={< LaunchPage />} />
+        <Route exact path='home' element={<HomePage />} />
+        <Route exact path='menu' element={<MenuPage />} />
+        <Route exact path='videotutorials' element={<TutorialPage />} />
+        <Route exact path='progress' element={<ProgressPage />} />
+        <Route exact path='practice' element={<PracticePage />} />
+        <Route exact path='practiceR' element={<PracticePageR />} />
+      </Routes>
     </div>
   );
 }

@@ -1,17 +1,16 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
-import Header from '../../components/Header/Header';
-import Navbar from '../../components/Navbar/Navbar';
+import Sidebar from '../../components/sidebar/Sidebar';
 import styles from './LaunchPage.module.css';
 
 const LaunchPage = () => {
 
 
     return (
-        <div className={styles.container}>
-            <Navbar />
-            <div style={{ marginTop: 200, height: '80vh' }}>
-                <Header header="Welcome to TYPMASTA" />
+        <>
+            <Sidebar />
+            <div className={styles.container}>
+                <p className={styles.headerText}>Welcome to TYPMASTA</p>
                 <Link to='/menu'>
                     <button style={{
                         width: 250,
@@ -29,9 +28,8 @@ const LaunchPage = () => {
                     >Get Started</button>
                 </Link>
                 <Outlet />
-            </div >
-
-        </div>
+            </div>
+        </>
     )
 }
 

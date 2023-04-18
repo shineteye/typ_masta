@@ -1,11 +1,11 @@
 import React from 'react'
-import Navbar from '../../components/Navbar/Navbar'
+import Sidebar from '../../components/sidebar/Sidebar'
 
 
 export const ProgressPage = () => {
     return (
         <div>
-            <Navbar />
+            <Sidebar />
             <h1>Level</h1>
             <p>List</p>
             <p>Scores</p>

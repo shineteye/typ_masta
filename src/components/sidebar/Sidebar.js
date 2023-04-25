@@ -9,6 +9,7 @@ import styles from './Sidebar.module.css'
 const Sidebar = () => {
     return (
         <div className={styles.container}>
+            <h2>typMasta</h2>
             <div className={styles.img}>
                 <Link to="/" style={{ textDecoration: 'none' }}>
                     <img src={home} alt='home' />

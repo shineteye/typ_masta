@@ -18,7 +18,7 @@ export default function PracticePageR() {
 
 
     useEffect(() => {
-        const paragraph = Content[13]
+        const paragraph = Content[1]
         setGeneratedParagraph(paragraph)
     }, [])
 
@@ -55,6 +55,12 @@ export default function PracticePageR() {
 
     const handleStart = () => {
         setStart(true)
+        setCorrectness([])
+        setTypedText('')
+        setStartTime(null);
+        setEndTime(null);
+        setTypingSpeed(0);
+        setAccuracy(0);
         inputRef.current.focus()
     }
 
@@ -72,77 +78,97 @@ export default function PracticePageR() {
         setAccuracy(0);
     }
 
+    const container = {
+        display: 'flex',
+        justifyContent: 'space-between',
+        height: '100vh',
+    };
+
+    const mainContentStyles = {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        // justifyContent: 'center',
+        width: '90%',
+        minHeight: '100%',
+    }
+
 
     return (
-        <>
+        <div style={container}>
             <Sidebar />
-            <div className={styles.practiceInfo}>
-                <p>Time:  </p>
-                <p>Mistakes: </p>
-                <p>Accuracy: {accuracy.toFixed(2)}%</p>
-                <p>WPM: </p>
-            </div>
+            <div style={mainContentStyles}>
+                <div className={styles.practiceInfo}>
+                    <p>Time:  </p>
+                    <p>Mistakes: </p>
+                    <p>Accuracy: {accuracy.toFixed(2)}%</p>
+                    <p>WPM: </p>
+                </div>
 
-            <div className={styles.body}>
-                <div className={styles.container}>
-                    {generatedParagraph && startTime && (
-                        <p className={styles.paragraph}>
-                            {generatedParagraph.split('').map((char, index) => (
-                                <span key={index} style={{
-                                    color:
-                                        correctness[index] === 'correct' ? 'green' : 'red'
+                <div className={styles.body}>
+                    <div className={styles.typingSection}>
+                        {generatedParagraph && startTime && (
+                            <p className={styles.paragraph}>
+                                {generatedParagraph.split('').map((char, index) => (
+                                    <span key={index} style={{
+                                        color:
+                                            correctness[index] === 'correct' ? 'green' : 'red'
+                                    }}
+                                    >
+                                        {char}
+                                    </span>
+                                ))}</p>
+                        )}
+                        {start ?
+                            <textarea
+                                ref={inputRef}
+                                rows={3}
+                                placeholder='Start typing...'
+                                value={typedText}
+                                onChange={handleInputChange}
+                            >
+                            </textarea> :
+                            <textarea
+                                ref={inputRef}
+                                rows={3}
+                                placeholder='Start Typing on start'
+                                value={typedText}
+                                disabled={true}
+                            >
+                            </textarea>}
+
+                        {!start ?
+                            <button className={styles.startBtn} onClick={handleStart}>Start</button> : (
+                                <div className={styles.primaryBtns}>
+                                    <>
+                                        <button className={styles.stopBtn} onClick={handleStop}>Stop</button>
+                                        <button className={styles.restartBtn} onClick={handleRestart}>Restart</button>
+                                    </>
+                                </div>
+                            )
+                        }
+                        {endTime && start && (
+                            <p>
+                                Typing Speed: {typingSpeed.toFixed(2)} words per second | Accuracy: {accuracy.toFixed(2)}%
+                            </p>
+                        )}
+                        {endTime ? (
+                            <p>Done</p>
+                            // <button onClick={handleRestart}>Restart</button>
+                        ) : (
+                            <button
+                                disabled={typedText.length !== generatedParagraph.length}
+                                onClick={() => {
+                                    setEndTime(Date.now());
+                                    inputRef.current.blur();
                                 }}
-                                >
-                                    {char}
-                                </span>
-                            ))}</p>
-                    )}
-                    {start ?
-                        <textarea
-                            ref={inputRef}
-                            rows={3}
-                            placeholder='Start typing...'
-                            value={typedText}
-                            onChange={handleInputChange}
-                        >
-                        </textarea> :
-                        <textarea
-                            ref={inputRef}
-                            rows={3}
-                            placeholder='Start Typing on start'
-                            value={typedText}
-                            disabled={true}
-                        >
-                        </textarea>}
-
-                    {!start ?
-                        <button className={styles.startBtn} onClick={handleStart}>Start</button> : (
-                            <>
-                                <button className={styles.stopBtn} onClick={handleStop}>Stop</button>
-                                <button className={styles.restartBtn} onClick={handleRestart}>Restart</button>
-                            </>
-                        )
-                    }
-                    {endTime && start && (
-                        <p>
-                            Typing Speed: {typingSpeed.toFixed(2)} words per second | Accuracy: {accuracy.toFixed(2)}%
-                        </p>
-                    )}
-                    {endTime ? (
-                        <button onClick={handleRestart}>Restart</button>
-                    ) : (
-                        <button
-                            disabled={typedText.length !== generatedParagraph.length}
-                            onClick={() => {
-                                setEndTime(Date.now());
-                                inputRef.current.blur();
-                            }}
-                        >
-                            Finish
-                        </button>
-                    )}
+                            >
+                                Finish
+                            </button>
+                        )}
+                    </div>
                 </div>
             </div>
-        </>
+        </div>
     )
 }

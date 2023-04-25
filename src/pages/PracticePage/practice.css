@@ -4,23 +4,20 @@
     height: '100%'
 }
 
-.body {
+.mainContentStyles {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 90%;
-    margin-top: 50px;
+    min-height: 100%;
 }
 
-.typingSection {
+/* .body {
     display: flex;
-    flex-direction: column;
-    width: 70%;
-
-    /* justify-content: center;
-    align-items: center; */
-}
+    align-items: center;
+    justify-content: center;
+} */
 
 .practiceInfo {
     display: flex;
@@ -37,10 +34,8 @@
 
 .paragraph {
     text-align: justify;
-    align-self: center;
     margin: 50px 0 30px 0;
     font-weight: 600;
-    font-size: 30px;
 }
 
 input {
@@ -49,7 +44,7 @@ input {
     border-radius: 5px;
     padding: 10px 5px;
     font-size: 16px;
-    margin-top: 10px;
+    margin-top: 40px;
 }
 
 textarea {
@@ -59,7 +54,7 @@ textarea {
     padding: 10px 5px;
     font-size: 20px;
     font-weight: 500;
-    margin-top: 20px;
+    margin-top: 40px;
 }
 
 button {
@@ -69,15 +64,6 @@ button {
     border-radius: 5px;
     font-size: 20px;
     cursor: pointer;
-    width: 40%;
-    align-self: center;
-    margin-top: 25px;
-}
-
-.primaryBtns {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
 }
 
 .startBtn {

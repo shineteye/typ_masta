@@ -1,12 +1,26 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import beginnerImg from '../../assets/img/beginner.jpg';
 import advanceImg from '../../assets/img/inter.jpg';
 import proImg from '../../assets/img/pro.jpg';
 import Card from '../../components/Card/Card';
 import Sidebar from '../../components/sidebar/Sidebar';
+import { ModeContext } from '../../contexts/modeContext';
+
+
 
 function MenuPage() {
+    const { mode, setMode } = useContext(ModeContext)
 
+
+    const handleBeginnerClick = () => {
+        setMode('begin')
+    }
+    const handleAdvanceClick = () => {
+        setMode('adv')
+    }
+    const handleProClick = () => {
+        setMode('pro')
+    }
     const styles = {
         display: 'flex',
         justifyContent: 'space-between',
@@ -41,16 +55,19 @@ function MenuPage() {
                         lvlText="Beginner"
                         imgSrc={beginnerImg}
                         linkTo='/videotutorials'
+                        handler={handleBeginnerClick}
                     />
                     <Card
                         lvlText="Advanced"
                         imgSrc={advanceImg}
                         linkTo='/videotutorials'
+                        handler={handleAdvanceClick}
                     />
                     <Card
                         lvlText="Professional"
                         imgSrc={proImg}
                         linkTo='/videotutorials'
+                        handler={handleProClick}
                     />
                 </div>
             </div>

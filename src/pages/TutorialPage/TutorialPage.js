@@ -1,35 +1,79 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import beginnerVideo from '../../assets/videos/Feed.mp4'
 import VidTutCard from '../../components/VideoTutorialCard/VidTutCard'
+import { ModeContext } from '../../contexts/modeContext'
 import styles from './TutorialPage.module.css'
 
 const TutorialPage = () => {
+    const { mode, setMode } = useContext(ModeContext)
+
     return (
         <div className={styles.container}>
             <Link to='/menu'>
                 <button style={{
-                    width: 300,
+                    width: 200,
                     height: 50,
-                    margin: 10,
+                    margin: 20,
                     padding: 10,
-                    backgroundColor: "#cde",
-                    border: "none"
+                    fontWeight: 700,
+                    backgroundColor: "dodgerblue",
+                    color: "white",
+                    borderWidth: 3,
+                    borderStyle: 'solid',
+                    borderColor: 'white'
                 }}>
                     Back</button>
             </Link>
-            <VidTutCard
-                mainHeading="TUTORIAL"
-                subheading='click to begin'
-                videoSrc={beginnerVideo} />
-            <VidTutCard
-                mainHeading="TUTORIAL"
-                subheading='click to begin'
-                videoSrc={beginnerVideo} />
-            <VidTutCard
-                mainHeading="TUTORIAL"
-                subheading='click to begin'
-                videoSrc={beginnerVideo} />
+            {mode === 'begin' && <>
+                <h1>Beginner Videos</h1>
+                <VidTutCard
+                    mainHeading="TUTORIAL"
+                    subheading='click to begin'
+                    videoSrc={beginnerVideo} />
+                <VidTutCard
+                    mainHeading="TUTORIAL"
+                    subheading='click to begin'
+                    videoSrc={beginnerVideo} />
+                <VidTutCard
+                    mainHeading="TUTORIAL"
+                    subheading='click to begin'
+                    videoSrc={beginnerVideo} />
+            </>}
+
+            {mode === 'adv' && <>
+                <h1>Advanced Videos</h1>
+                <VidTutCard
+                    mainHeading="TUTORIAL"
+                    subheading='click to begin'
+                    videoSrc={beginnerVideo} />
+                <VidTutCard
+                    mainHeading="TUTORIAL"
+                    subheading='click to begin'
+                    videoSrc={beginnerVideo} />
+                <VidTutCard
+                    mainHeading="TUTORIAL"
+                    subheading='click to begin'
+                    videoSrc={beginnerVideo} />
+
+            </>}
+            {mode === 'pro' && <>
+                <h1>Advanced Videos</h1>
+                <VidTutCard
+                    mainHeading="TUTORIAL"
+                    subheading='click to begin'
+                    videoSrc={beginnerVideo} />
+                <VidTutCard
+                    mainHeading="TUTORIAL"
+                    subheading='click to begin'
+                    videoSrc={beginnerVideo} />
+                <VidTutCard
+                    mainHeading="TUTORIAL"
+                    subheading='click to begin'
+                    videoSrc={beginnerVideo} />
+
+            </>}
+
         </div>
     )
 }

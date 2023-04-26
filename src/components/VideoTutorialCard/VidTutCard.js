@@ -6,7 +6,7 @@ const VidTutCard = ({ mainHeading, subheading, videoSrc }) => {
         <div className={styles.container}>
             <div className={styles.infoContainer}>
                 <h1>{mainHeading}</h1>
-                <p>{subheading}</p>
+                <h3>{subheading}</h3>
             </div>
             <div className={styles.vidContainer}>
                 <video src={videoSrc} controls style={{ margin: 10, width: 400, height: 400 }}></video>

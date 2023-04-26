@@ -1,0 +1,41 @@
+.container {
+    display: 'flex';
+    justify-content: 'space-between';
+    height: 100vh;
+}
+
+
+.body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    margin-top: 50px;
+}
+
+.body h1 {
+    display: flex;
+    justify-content: flex-start;
+    margin: 30px;
+    color: rgb(1, 56, 111);
+    /* background-color: rgb(16, 118, 221); */
+    padding: 10px;
+    border-radius: 3px;
+}
+
+.body h3 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+.scoreSection {
+    display: flex;
+    background-color: dodgerblue;
+    margin: 40px;
+    width: 50%;
+    border: thick;
+}

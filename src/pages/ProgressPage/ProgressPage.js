@@ -15,7 +15,7 @@ export const ProgressPage = () => {
         <div style={container}>
             <Sidebar />
             <div className={styles.body}>
-                <h1>Scores</h1>
+                <h1 className={styles.headerText}>Scores</h1>
                 <div className={styles.scoreSection}>
                     <h1>Beginner</h1>
                     <h3>High Score: </h3>

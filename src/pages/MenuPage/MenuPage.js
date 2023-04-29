@@ -7,10 +7,8 @@ import Sidebar from '../../components/sidebar/Sidebar';
 import { ModeContext } from '../../contexts/modeContext';
 
 
-
 function MenuPage() {
     const { mode, setMode } = useContext(ModeContext)
-
 
     const handleBeginnerClick = () => {
         setMode('begin')
@@ -24,7 +22,7 @@ function MenuPage() {
     const styles = {
         display: 'flex',
         justifyContent: 'space-between',
-        height: '100vh'
+        height: '100vh',
     };
 
     const header = {
@@ -47,9 +45,12 @@ function MenuPage() {
     return (
         <div style={styles}>
             <Sidebar />
-            <div>
+            <div style={{
+                display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100%'
+            }}>
                 <div style={header}>
-                    <h1>Select your level</h1>                </div>
+                    <h1>Select your level</h1>
+                </div>
                 <div style={mainContentStyles}>
                     <Card
                         lvlText="Beginner"

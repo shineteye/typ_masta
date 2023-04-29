@@ -18,7 +18,8 @@ export default function PracticePageR() {
 
 
     useEffect(() => {
-        const paragraph = Content[1]
+        const randIndex = Math.floor(Math.random() * Content.length);
+        const paragraph = Content[randIndex]
         setGeneratedParagraph(paragraph)
     }, [])
 
@@ -88,7 +89,6 @@ export default function PracticePageR() {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        // justifyContent: 'center',
         width: '90%',
         minHeight: '100%',
     }
@@ -99,7 +99,7 @@ export default function PracticePageR() {
             <Sidebar />
             <div style={mainContentStyles}>
                 <div className={styles.practiceInfo}>
-                    <p>Time:  </p>
+                    {/* <p>Time:  </p> */}
                     <p>Mistakes: </p>
                     <p>Accuracy: {accuracy.toFixed(2)}%</p>
                     <p>WPM: </p>
@@ -154,7 +154,6 @@ export default function PracticePageR() {
                         )}
                         {endTime ? (
                             <p>Done</p>
-                            // <button onClick={handleRestart}>Restart</button>
                         ) : (
                             <button
                                 disabled={typedText.length !== generatedParagraph.length}

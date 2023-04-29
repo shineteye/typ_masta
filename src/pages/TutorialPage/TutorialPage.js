@@ -58,7 +58,7 @@ const TutorialPage = () => {
 
             </>}
             {mode === 'pro' && <>
-                <h1>Advanced Videos</h1>
+                <h1>Professional Videos</h1>
                 <VidTutCard
                     mainHeading="TUTORIAL"
                     subheading='click to begin'

@@ -19,9 +19,8 @@
     justify-content: flex-start;
     margin: 30px;
     color: rgb(1, 56, 111);
-    /* background-color: rgb(16, 118, 221); */
-    padding: 10px;
     border-radius: 3px;
+
 }
 
 .body h3 {
@@ -35,7 +34,7 @@
 .scoreSection {
     display: flex;
     background-color: dodgerblue;
-    margin: 40px;
+    margin: 20px;
     width: 50%;
     border: thick;
 }

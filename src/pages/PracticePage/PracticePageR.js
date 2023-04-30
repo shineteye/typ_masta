@@ -28,7 +28,7 @@ export default function PracticePageR() {
         if (mode === 'begin') {
             paragraph = Content[0];
         } if (mode === 'adv') {
-            paragraph = Content[1] + Content[2]
+            paragraph = Content[1];
         } if (mode === 'pro') {
             paragraph = Content[2]
         }

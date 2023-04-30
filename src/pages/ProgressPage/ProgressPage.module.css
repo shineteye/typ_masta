@@ -38,3 +38,10 @@
     width: 50%;
     border: thick;
 }
+
+h3 {
+    display: flex;
+    gap: 2;
+    margin: 10px;
+    padding: 10px;
+}

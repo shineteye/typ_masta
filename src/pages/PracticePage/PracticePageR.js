@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Sidebar from '../../components/sidebar/Sidebar';
 import { ModeContext } from '../../contexts/modeContext';
-import { ScoreContext } from '../../contexts/scoreContext';
+import ScoreContext from '../../contexts/scoreContext';
 import styles from './PracticePageR.module.css';
 import Content from './paragraphs';
 
@@ -63,7 +63,7 @@ export default function PracticePageR() {
         const elapsedTime = (Date.now() - startTime) / 1000; // in seconds
         const typedWordCount = inputText.trim().split(' ').length;
         const typingSpeed = typedWordCount / elapsedTime;
-        setTypingSpeed(typingSpeed);
+        setTypingSpeed((typingSpeed.toFixed(2)));
 
         const correctCharCount = correctnessArray.filter((correctness) => correctness === 'correct').length;
         const accuracy = (correctCharCount / inputText.length) * 100;
@@ -168,18 +168,18 @@ export default function PracticePageR() {
                                 Typing Speed: {typingSpeed.toFixed(2)} words per second | Accuracy: {accuracy.toFixed(2)}%
                             </p>
                         )}
-
                         {endTime ? (
                             <></>
                         ) : (
                             <div style={{ display: 'flex', alignSelf: 'center', alignItems: 'center', justifyContent: 'center' }}>
-                                <Link to={'/progress'}>
+                                <Link to={'/progress/' + mode}>
                                     <button
                                         style={{ width: '100%' }}
                                         disabled={typedText.length !== generatedParagraph.length}
                                         onClick={() => {
                                             setEndTime(Date.now());
                                             inputRef.current.blur();
+                                            localStorage.setItem(mode, JSON.stringify({ accuracy, typingSpeed }))
                                             setAccur(accuracy);
                                             setWPM(typingSpeed)
                                         }}

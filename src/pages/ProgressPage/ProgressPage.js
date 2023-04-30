@@ -34,14 +34,14 @@ export const ProgressPage = () => {
                 }
                 {(!params.mode || params.mode === 'adv') && (
                     <div className={styles.scoreSection}>
-                        <h1>Advanced</h1>
+                        <h1>Intermediate</h1>
                         <h3>Accuracy: {scoreAdv?.accuracy || 0} </h3>
                         <h3>Words per Minute: {scoreAdv?.typingSpeed || 0} </h3>
                     </div>
                 )}
                 {(!params.mode || params.mode === 'pro') && (
                     <div className={styles.scoreSection}>
-                        <h1>Professional</h1>
+                        <h1>Advanced</h1>
                         <h3>Accuracy: {scorePro?.accuracy || 0} </h3>
                         <h3>Words per Minute: {scorePro?.typingSpeed || 0} </h3>
                     </div>

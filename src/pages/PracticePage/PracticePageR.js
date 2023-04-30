@@ -115,10 +115,8 @@ export default function PracticePageR() {
             <Sidebar />
             <div style={mainContentStyles}>
                 <div className={styles.practiceInfo}>
-                    <p>Time:  </p>
-                    <p>Mistakes: </p>
                     <p>Accuracy: {accuracy.toFixed(2)}%</p>
-                    <p>WPM: </p>
+                    <p>WPM: {typingSpeed.toFixed(2)}</p>
                 </div>
 
                 <div className={styles.body}>

@@ -59,13 +59,13 @@ function MenuPage() {
                         handler={handleBeginnerClick}
                     />
                     <Card
-                        lvlText="Advanced"
+                        lvlText="Intermediate"
                         imgSrc={advanceImg}
                         linkTo='/videotutorials'
                         handler={handleAdvanceClick}
                     />
                     <Card
-                        lvlText="Professional"
+                        lvlText="Advanced"
                         imgSrc={proImg}
                         linkTo='/videotutorials'
                         handler={handleProClick}

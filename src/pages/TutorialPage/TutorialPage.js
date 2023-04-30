@@ -45,7 +45,7 @@ const TutorialPage = () => {
             </>}
 
             {mode === 'adv' && <>
-                <h1>Advanced Videos</h1>
+                <h1>Intermediate Videos</h1>
                 <VidTutCard
                     mainHeading="TUTORIAL"
                     subheading='click to begin'
@@ -63,7 +63,7 @@ const TutorialPage = () => {
                 </Link>
             </>}
             {mode === 'pro' && <>
-                <h1>Professional Videos</h1>
+                <h1>Advanced Videos</h1>
                 <VidTutCard
                     mainHeading="TUTORIAL"
                     subheading='click to begin'

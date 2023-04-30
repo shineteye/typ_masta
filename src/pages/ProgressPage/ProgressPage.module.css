@@ -33,6 +33,7 @@
 
 .scoreSection {
     display: flex;
+    justify-content: space-between;
     background-color: dodgerblue;
     margin: 20px;
     width: 50%;

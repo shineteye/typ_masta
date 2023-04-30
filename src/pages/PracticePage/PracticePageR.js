@@ -23,18 +23,19 @@ export default function PracticePageR() {
 
 
     useEffect(() => {
-        var paragraph = Content[0]
+        let paragraph = Content[0]
 
         if (mode === 'begin') {
             paragraph = Content[0];
         } if (mode === 'adv') {
-            paragraph = Content[1];
+            paragraph = Content[1] + Content[0];
         } if (mode === 'pro') {
-            paragraph = Content[2]
+
+            const randIndex = Math.floor(Math.random() * Content.length);
+            paragraph = Content[randIndex]
         }
 
         // console.log(index);
-        // const randIndex = Math.floor(Math.random() * Content.length);
         // const paragraph = Content[index]
         setGeneratedParagraph(paragraph)
     }, [])
@@ -114,11 +115,26 @@ export default function PracticePageR() {
         <div style={container}>
             <Sidebar />
             <div style={mainContentStyles}>
+                <Link to='/videotutorials'>
+                    <button style={{
+                        width: '100%',
+                        height: 50,
+                        margin: 20,
+                        padding: 10,
+                        fontWeight: 700,
+                        backgroundColor: "white",
+                        color: "dodgerblue",
+                        border: 'solid',
+                        borderTopColor: 'white',
+                        borderRightColor: 'white',
+                        borderLeftColor: 'white',
+                        borderWidth: 2
+                    }}>Back</button>
+                </Link>
                 <div className={styles.practiceInfo}>
                     <p>Accuracy: {accuracy.toFixed(2)}%</p>
-                    <p>WPM: </p>
+                    <p>WPM: {typingSpeed}</p>
                 </div>
-
                 <div className={styles.body}>
                     <div className={styles.typingSection}>
                         {generatedParagraph && startTime && (

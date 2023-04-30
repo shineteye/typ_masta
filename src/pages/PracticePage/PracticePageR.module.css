@@ -38,8 +38,10 @@
     text-align: justify;
     align-self: center;
     margin: 30px 0 30px 0;
+    width: 90%;
     font-weight: 600;
-    font-size: 25px;
+    font-size: 30px;
+    background-color: burlywood;
 }
 
 input {

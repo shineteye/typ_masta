@@ -31,14 +31,17 @@ const TutorialPage = () => {
                     mainHeading="TUTORIAL"
                     subheading='click to begin'
                     videoSrc={beginnerVideo} />
-                <VidTutCard
-                    mainHeading="TUTORIAL"
-                    subheading='click to begin'
-                    videoSrc={beginnerVideo} />
-                <VidTutCard
-                    mainHeading="TUTORIAL"
-                    subheading='click to begin'
-                    videoSrc={beginnerVideo} />
+                <Link to='/practiceR'>
+                    <button style={{
+                        width: '100%',
+                        height: 50,
+                        margin: 20,
+                        padding: 10,
+                        fontWeight: 700,
+                        backgroundColor: "white",
+                        color: "dodgerblue",
+                    }} >Proceed to Practice</button>
+                </Link>
             </>}
 
             {mode === 'adv' && <>
@@ -47,15 +50,17 @@ const TutorialPage = () => {
                     mainHeading="TUTORIAL"
                     subheading='click to begin'
                     videoSrc={beginnerVideo} />
-                <VidTutCard
-                    mainHeading="TUTORIAL"
-                    subheading='click to begin'
-                    videoSrc={beginnerVideo} />
-                <VidTutCard
-                    mainHeading="TUTORIAL"
-                    subheading='click to begin'
-                    videoSrc={beginnerVideo} />
-
+                <Link to='/practiceR'>
+                    <button style={{
+                        width: '100%',
+                        height: 50,
+                        margin: 20,
+                        padding: 10,
+                        fontWeight: 700,
+                        backgroundColor: "white",
+                        color: "dodgerblue",
+                    }} >Proceed to Practice</button>
+                </Link>
             </>}
             {mode === 'pro' && <>
                 <h1>Professional Videos</h1>
@@ -63,15 +68,17 @@ const TutorialPage = () => {
                     mainHeading="TUTORIAL"
                     subheading='click to begin'
                     videoSrc={beginnerVideo} />
-                <VidTutCard
-                    mainHeading="TUTORIAL"
-                    subheading='click to begin'
-                    videoSrc={beginnerVideo} />
-                <VidTutCard
-                    mainHeading="TUTORIAL"
-                    subheading='click to begin'
-                    videoSrc={beginnerVideo} />
-
+                <Link to='/practiceR'>
+                    <button style={{
+                        width: '100%',
+                        height: 50,
+                        margin: 20,
+                        padding: 10,
+                        fontWeight: 700,
+                        backgroundColor: "white",
+                        color: "dodgerblue",
+                    }} >Proceed to Practice</button>
+                </Link>
             </>}
 
         </div>

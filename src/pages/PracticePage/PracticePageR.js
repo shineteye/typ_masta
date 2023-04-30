@@ -116,7 +116,7 @@ export default function PracticePageR() {
             <div style={mainContentStyles}>
                 <div className={styles.practiceInfo}>
                     <p>Accuracy: {accuracy.toFixed(2)}%</p>
-                    <p>WPM: {typingSpeed.toFixed(2)}</p>
+                    <p>WPM: {typingSpeed}</p>
                 </div>
 
                 <div className={styles.body}>

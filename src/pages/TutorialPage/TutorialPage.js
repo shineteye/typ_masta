@@ -1,6 +1,5 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
-import beginnerVideo from '../../assets/videos/Feed.mp4'
 import VidTutCard from '../../components/VideoTutorialCard/VidTutCard'
 import { ModeContext } from '../../contexts/modeContext'
 import styles from './TutorialPage.module.css'
@@ -30,7 +29,7 @@ const TutorialPage = () => {
                 <VidTutCard
                     mainHeading="TUTORIAL"
                     subheading='click to begin'
-                    videoSrc={beginnerVideo} />
+                    videoSrc="https://www.youtube.com/embed/YlBZ2Jd68lY" />
                 <Link to='/practiceR'>
                     <button style={{
                         width: '100%',
@@ -49,7 +48,7 @@ const TutorialPage = () => {
                 <VidTutCard
                     mainHeading="TUTORIAL"
                     subheading='click to begin'
-                    videoSrc={beginnerVideo} />
+                    videoSrc="https://www.youtube.com/embed/A-CT48rRi3M" />
                 <Link to='/practiceR'>
                     <button style={{
                         width: '100%',
@@ -67,7 +66,7 @@ const TutorialPage = () => {
                 <VidTutCard
                     mainHeading="TUTORIAL"
                     subheading='click to begin'
-                    videoSrc={beginnerVideo} />
+                    videoSrc="https://www.youtube.com/embed/b-6YH-Y55TA" />
                 <Link to='/practiceR'>
                     <button style={{
                         width: '100%',

@@ -1,70 +1,78 @@
-# Getting Started with Create React App
+# typMasta
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A touch typing trainer. Three levels, from home-row drills to full passages,
+with live words per minute, honest accuracy, and a record of every run.
 
-## Available Scripts
+## Running it
 
-In the project directory, you can run:
+```bash
+npm install
+npm start          # http://localhost:3000
+npm run build      # production bundle in build/
+```
 
-### `npm start`
+No backend and no accounts — every score is kept in the browser's
+`localStorage`.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## How it is put together
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```
+src/
+  lib/            Pure logic, no React
+    metrics.js      WPM / accuracy / consistency formulas
+    scores.js       Run history: append, summarise, trend
+    levels.js       The three levels and everything that differs between them
+    textBank.js     Practice passages, grouped by level
+  hooks/
+    useTypingEngine.js   One typing attempt: timing, per-character state, metrics
+    useLocalStorage.js   Persisted state, guarded for blocked storage
+  contexts/
+    ProgressContext.js   Selected level + run history (both persisted)
+    ThemeContext.js      Dark/light, driving `data-theme` on <html>
+  components/
+    typing/         TypingSurface, StatBar, ResultsPanel
+    charts/         WpmChart
+    layout/         AppShell — rail on desktop, tab bar on mobile
+    ui/             Button, Icon
+  pages/          One file per route
+  styles/theme.css  Design tokens + reset
+```
 
-### `npm test`
+### How scoring works
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+A "word" is **5 characters, including spaces** — the standard convention, so
+scores are comparable with other typing tests and do not depend on how long the
+words in a passage happen to be.
 
-### `npm run build`
+- **WPM** (net) counts only correct characters, so random hammering cannot
+  inflate it.
+- **Raw** counts everything typed, mistakes included.
+- **Accuracy** is measured over every keystroke of the attempt. A character
+  typed wrong and then backspaced still counts against it.
+- **Consistency** comes from the variation in per-character timing, so a steady
+  typist scores well even at a low speed.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The clock starts on the **first keystroke**, not when the passage appears, so
+pausing to read costs nothing.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Styling
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+CSS Modules, with all color, spacing and type values coming from tokens in
+`src/styles/theme.css`. Dark is the default; the toggle in the navigation sets
+`data-theme` on `<html>` and the light palette takes over. Chart marks use their
+own token, a step deeper than the UI accent, so large filled areas do not glare
+against the dark surface.
 
-### `npm run eject`
+## Routes
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+| Route             | Page                                  |
+| ----------------- | ------------------------------------- |
+| `/`               | Landing, with progress per level      |
+| `/levels`         | Level select                          |
+| `/tutorial`       | Video and technique notes for a level |
+| `/practice`       | The typing screen                     |
+| `/progress`       | History, chart and recent runs        |
+| `/progress/:mode` | History for one level                 |
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The previous build's routes (`/home`, `/menu`, `/videotutorials`, `/practiceR`)
+redirect to their replacements.

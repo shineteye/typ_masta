@@ -1,0 +1,160 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-8);
+  padding-block: var(--sp-6);
+}
+
+/* --- Hero ----------------------------------------------------------------- */
+
+.hero {
+  max-width: 34rem;
+}
+
+.eyebrow {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: var(--sp-4);
+}
+
+.title {
+  font-size: clamp(2.25rem, 6vw, var(--text-5xl));
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+}
+
+.titleAccent {
+  color: var(--text-muted);
+}
+
+.lede {
+  margin-top: var(--sp-5);
+  font-size: var(--text-lg);
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.ctaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  margin-top: var(--sp-6);
+}
+
+.quickStats {
+  display: flex;
+  gap: var(--sp-7);
+  margin-top: var(--sp-7);
+  padding-top: var(--sp-5);
+  border-top: 1px solid var(--border);
+}
+
+.quickStats dt {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-bottom: 2px;
+}
+
+.quickStats dd {
+  font-family: var(--font-mono);
+  font-size: var(--text-xl);
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- Levels --------------------------------------------------------------- */
+
+.sectionTitle {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-bottom: var(--sp-4);
+}
+
+.levelList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+}
+
+.levelRow {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) minmax(0, 260px);
+  align-items: center;
+  gap: var(--sp-4);
+  padding: var(--sp-4) var(--sp-5);
+  border-bottom: 1px solid var(--border);
+}
+
+.levelRow:last-child {
+  border-bottom: none;
+}
+
+.levelDot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--r-full);
+  flex-shrink: 0;
+}
+
+.levelName {
+  font-weight: 600;
+}
+
+.levelTagline {
+  font-size: var(--text-sm);
+  color: var(--text-faint);
+}
+
+.levelProgress {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.levelTrack {
+  height: 5px;
+  background: var(--bg-inset);
+  border-radius: var(--r-full);
+  overflow: hidden;
+}
+
+.levelFill {
+  height: 100%;
+  border-radius: var(--r-full);
+  transition: width var(--dur) var(--ease);
+}
+
+.levelNumbers {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 720px) {
+  .quickStats {
+    gap: var(--sp-5);
+  }
+
+  .levelRow {
+    grid-template-columns: auto minmax(0, 1fr);
+    row-gap: var(--sp-3);
+  }
+
+  .levelProgress {
+    grid-column: 1 / -1;
+  }
+}

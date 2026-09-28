@@ -1,0 +1,137 @@
+.wrap {
+  width: 100%;
+}
+
+.plot {
+  position: relative;
+}
+
+.svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/* --- Axes: recessive ------------------------------------------------------ */
+
+.grid {
+  stroke: var(--chart-grid);
+  stroke-width: 1;
+}
+
+.axisLabel {
+  fill: var(--text-faint);
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 500;
+}
+
+/* --- Data ----------------------------------------------------------------- */
+
+.area {
+  fill: var(--chart-1-fill);
+}
+
+.line {
+  fill: none;
+  stroke: var(--chart-1);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.dot {
+  fill: var(--chart-1);
+  /* A surface ring keeps markers legible where the line doubles back. */
+  stroke: var(--bg-raised);
+  stroke-width: 2;
+}
+
+.dotActive {
+  fill: var(--chart-1);
+  stroke: var(--bg-raised);
+  stroke-width: 2.5;
+}
+
+.crosshairLine {
+  stroke: var(--border-strong);
+  stroke-width: 1;
+  stroke-dasharray: 3 3;
+}
+
+/* --- Tooltip -------------------------------------------------------------- */
+
+.tooltip {
+  position: absolute;
+  transform: translate(-50%, calc(-100% - 14px));
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding: var(--sp-2) var(--sp-3);
+  background: var(--bg-overlay);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--r-sm);
+  box-shadow: var(--shadow-md);
+  font-size: var(--text-xs);
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.tooltip strong {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-variant-numeric: tabular-nums;
+}
+
+.tooltip span {
+  color: var(--text-muted);
+}
+
+/* --- Empty + table -------------------------------------------------------- */
+
+.empty {
+  padding: var(--sp-6) 0;
+  color: var(--text-faint);
+  font-size: var(--text-sm);
+  text-align: center;
+}
+
+.tableToggle {
+  margin-top: var(--sp-4);
+  font-size: var(--text-sm);
+}
+
+.tableToggle summary {
+  color: var(--text-muted);
+  cursor: pointer;
+  width: fit-content;
+}
+
+.tableToggle summary:hover {
+  color: var(--text);
+}
+
+.table {
+  width: 100%;
+  margin-top: var(--sp-3);
+  border-collapse: collapse;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-variant-numeric: tabular-nums;
+}
+
+.table th,
+.table td {
+  padding: var(--sp-2) var(--sp-3);
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.table th {
+  color: var(--text-faint);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}

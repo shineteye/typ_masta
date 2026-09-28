@@ -1,0 +1,244 @@
+/* ==========================================================================
+   Design tokens
+   Dark is the default. A `data-theme="light"` attribute on <html> opts out,
+   and `data-theme="dark"` forces dark even where the OS prefers light.
+   ========================================================================== */
+
+:root {
+  /* --- Palette: dark (default) ------------------------------------------ */
+  --bg: #111418;
+  --bg-raised: #171b21;
+  --bg-overlay: #1d2229;
+  --bg-inset: #0d1014;
+
+  --border: #262c35;
+  --border-strong: #363e4a;
+
+  --text: #e6e9ef;
+  --text-muted: #9aa4b2;
+  --text-faint: #5b6675;
+
+  --accent: #ffc53d;
+  --accent-text: #1a1408;
+  --accent-soft: rgba(255, 197, 61, 0.14);
+
+  /* Chart marks sit a step deeper than the UI accent: a large filled area at
+     the accent's own lightness glares against the dark surface. Validated
+     inside the L 0.43-0.77 band at 3:1+ contrast. */
+  --chart-1: #e0a020;
+  --chart-1-fill: rgba(224, 160, 32, 0.16);
+  --chart-grid: #262c35;
+
+  --success: #4ade80;
+  --success-soft: rgba(74, 222, 128, 0.14);
+  --danger: #f87171;
+  --danger-soft: rgba(248, 113, 113, 0.16);
+  --info: #60a5fa;
+  --info-soft: rgba(96, 165, 250, 0.14);
+
+  /* Typing surface: untyped text sits back, typed text comes forward. */
+  --type-pending: #5b6675;
+  --type-correct: #e6e9ef;
+  --type-wrong: #f87171;
+  --type-wrong-bg: rgba(248, 113, 113, 0.18);
+  --type-caret: #ffc53d;
+
+  /* --- Type scale -------------------------------------------------------- */
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "JetBrains Mono", "SFMono-Regular", Menlo, Consolas,
+    "Liberation Mono", monospace;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.375rem;
+  --text-2xl: 1.75rem;
+  --text-3xl: 2.25rem;
+  --text-4xl: 3rem;
+  --text-5xl: 4rem;
+
+  /* --- Space (4px base) --------------------------------------------------- */
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.5rem;
+  --sp-6: 2rem;
+  --sp-7: 3rem;
+  --sp-8: 4rem;
+
+  /* --- Radii / shadow / motion ------------------------------------------- */
+  --r-sm: 6px;
+  --r-md: 10px;
+  --r-lg: 16px;
+  --r-full: 999px;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.45);
+
+  --ease: cubic-bezier(0.32, 0.72, 0, 1);
+  --dur-fast: 120ms;
+  --dur: 200ms;
+
+  /* --- Layout ------------------------------------------------------------ */
+  --rail-w: 72px;
+  --content-max: 1080px;
+}
+
+/* --- Palette: light ------------------------------------------------------ */
+:root[data-theme="light"] {
+  --bg: #f7f8fa;
+  --bg-raised: #ffffff;
+  --bg-overlay: #ffffff;
+  --bg-inset: #eef0f4;
+
+  --border: #e2e5ea;
+  --border-strong: #cbd1da;
+
+  --text: #16191d;
+  --text-muted: #5b6675;
+  --text-faint: #9aa4b2;
+
+  --accent: #b45309;
+  --accent-text: #ffffff;
+  --accent-soft: rgba(180, 83, 9, 0.1);
+
+  --chart-1: #b45309;
+  --chart-1-fill: rgba(180, 83, 9, 0.12);
+  --chart-grid: #e2e5ea;
+
+  --success: #15803d;
+  --success-soft: rgba(21, 128, 61, 0.1);
+  --danger: #b91c1c;
+  --danger-soft: rgba(185, 28, 28, 0.1);
+  --info: #1d4ed8;
+  --info-soft: rgba(29, 78, 216, 0.1);
+
+  --type-pending: #b0b7c2;
+  --type-correct: #16191d;
+  --type-wrong: #b91c1c;
+  --type-wrong-bg: rgba(185, 28, 28, 0.12);
+  --type-caret: #b45309;
+
+  --shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.06);
+  --shadow-md: 0 4px 16px rgba(16, 24, 40, 0.08);
+  --shadow-lg: 0 16px 48px rgba(16, 24, 40, 0.12);
+}
+
+/* ==========================================================================
+   Reset + base
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 650;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* A single, consistent focus ring. Only for keyboard users. */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: var(--r-sm);
+}
+
+::selection {
+  background: var(--accent-soft);
+}
+
+/* Scrollbars that don't fight the dark surface. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-strong) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: var(--r-full);
+  border: 3px solid transparent;
+  background-clip: content-box;
+}
+
+/* Visually hidden, still read by screen readers. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

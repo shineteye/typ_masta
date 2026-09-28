@@ -1,0 +1,112 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+}
+
+/* --- Header --------------------------------------------------------------- */
+
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  flex-wrap: wrap;
+}
+
+.eyebrow {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: var(--sp-1);
+}
+
+.title {
+  font-size: var(--text-xl);
+  color: var(--text-muted);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+/* --- Level switch --------------------------------------------------------- */
+
+.levelSwitch {
+  display: flex;
+  gap: 2px;
+  padding: 3px;
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+}
+
+.levelButton {
+  padding: var(--sp-2) var(--sp-4);
+  border-radius: calc(var(--r-md) - 4px);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-faint);
+  transition: background var(--dur-fast) var(--ease),
+    color var(--dur-fast) var(--ease);
+}
+
+.levelButton:hover {
+  color: var(--text);
+}
+
+.levelButtonActive {
+  background: var(--bg-overlay);
+  color: var(--text);
+  box-shadow: var(--shadow-sm);
+}
+
+/* --- Typing surface ------------------------------------------------------- */
+
+.surfaceCard {
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: var(--sp-7) var(--sp-6) var(--sp-5);
+}
+
+/* --- Controls ------------------------------------------------------------- */
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  flex-wrap: wrap;
+}
+
+.pushRight {
+  margin-left: auto;
+}
+
+@media (max-width: 720px) {
+  .header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .levelSwitch {
+    justify-content: space-between;
+  }
+
+  .levelButton {
+    flex: 1;
+    padding: var(--sp-2) var(--sp-2);
+    text-align: center;
+  }
+
+  .surfaceCard {
+    padding: var(--sp-5) var(--sp-4) var(--sp-4);
+  }
+
+  .pushRight {
+    margin-left: 0;
+  }
+
+  .controls > * {
+    flex: 1 1 auto;
+  }
+}

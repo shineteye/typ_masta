@@ -1,0 +1,137 @@
+.surface {
+  position: relative;
+  cursor: text;
+}
+
+.scroller {
+  max-height: 11.5em;
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+
+.passage {
+  font-family: var(--font-mono);
+  font-size: clamp(1.125rem, 2.4vw, 1.75rem);
+  line-height: 1.9;
+  letter-spacing: 0.01em;
+  word-spacing: 0.1em;
+  user-select: none;
+}
+
+/* Words wrap as units, so a word never splits across lines. */
+.word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.char {
+  position: relative;
+  transition: color var(--dur-fast) linear;
+}
+
+/* Untyped text sits back; typed text comes forward. */
+.pending {
+  color: var(--type-pending);
+}
+
+.correct {
+  color: var(--type-correct);
+}
+
+.wrong {
+  color: var(--type-wrong);
+  background: var(--type-wrong-bg);
+  border-radius: 2px;
+}
+
+/* A wrong space needs a visible body to show the error against. */
+.wrong.space {
+  background: var(--type-wrong-bg);
+  text-decoration: underline wavy var(--type-wrong);
+  text-underline-offset: 3px;
+}
+
+/* --- Caret ---------------------------------------------------------------- */
+
+.caret::before {
+  content: "";
+  position: absolute;
+  left: -2px;
+  top: 0.12em;
+  bottom: 0.12em;
+  width: 2px;
+  border-radius: 2px;
+  background: var(--type-caret);
+  animation: blink 1.1s var(--ease) infinite;
+}
+
+@keyframes blink {
+  0%,
+  45% {
+    opacity: 1;
+  }
+  55%,
+  100% {
+    opacity: 0.15;
+  }
+}
+
+.finished .passage {
+  opacity: 0.5;
+}
+
+/* --- Hidden input --------------------------------------------------------- */
+
+/* Off-screen rather than display:none, so it can still hold focus and raise
+   the software keyboard on mobile. */
+.hiddenInput {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border: 0;
+  left: 0;
+  top: 0;
+  /* Keeps iOS from scrolling the page to a zero-height field. */
+  font-size: 16px;
+}
+
+/* --- Hint ----------------------------------------------------------------- */
+
+.hint {
+  margin-top: var(--sp-5);
+  font-size: var(--text-sm);
+  color: var(--text-faint);
+  text-align: center;
+}
+
+/* The passage is full but not yet correct — the one state where the hint is
+   telling the user something they must act on. */
+.hintWarn {
+  color: var(--danger);
+  font-weight: 500;
+}
+
+.kbd {
+  display: inline-block;
+  padding: 1px 6px;
+  margin: 0 1px;
+  background: var(--bg-overlay);
+  border: 1px solid var(--border-strong);
+  border-bottom-width: 2px;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.8em;
+  color: var(--text-muted);
+}
+
+@media (max-width: 720px) {
+  .scroller {
+    max-height: 13em;
+  }
+
+  .passage {
+    line-height: 2;
+  }
+}

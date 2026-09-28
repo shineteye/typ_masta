@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "typMasta",
+  "name": "typMasta — Learn to touch type",
+  "description": "A touch typing trainer with three levels, live words-per-minute and accuracy, and a record of every run.",
   "icons": [
     {
       "src": "favicon.ico",
@@ -20,6 +21,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#111418",
+  "background_color": "#111418"
 }
